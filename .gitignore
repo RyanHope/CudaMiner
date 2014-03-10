@@ -1,0 +1,10 @@
+.deps
+compat/jansson/.deps
+autom4te.cache
+*.in
+*.vcxproj*
+config.*
+configure
+Makefile
+stamp-h1
+
