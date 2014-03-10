@@ -264,7 +264,7 @@ SUBDIRS = compat
 cudaminer_SOURCES = elist.h miner.h compat.h \
 			  compat/inttypes.h compat/stdbool.h compat/unistd.h \
 			  compat/sys/time.h compat/getopt/getopt.h \
-			  cpu-miner.c util.c \
+			  cudaminer.c util.c \
 			  sha2.c \
 			  scrypt.cpp \
 			  scrypt-jane.cpp scrypt-jane.h \
@@ -402,19 +402,19 @@ include ./$(DEPDIR)/cudaminer-util.Po
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
-cudaminer-cpu-miner.o: cpu-miner.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cudaminer-cpu-miner.o -MD -MP -MF $(DEPDIR)/cudaminer-cpu-miner.Tpo -c -o cudaminer-cpu-miner.o `test -f 'cpu-miner.c' || echo '$(srcdir)/'`cpu-miner.c
+cudaminer-cpu-miner.o: cudaminer.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cudaminer-cpu-miner.o -MD -MP -MF $(DEPDIR)/cudaminer-cpu-miner.Tpo -c -o cudaminer-cpu-miner.o `test -f 'cudaminer.c' || echo '$(srcdir)/'`cudaminer.c
 	$(am__mv) $(DEPDIR)/cudaminer-cpu-miner.Tpo $(DEPDIR)/cudaminer-cpu-miner.Po
-#	source='cpu-miner.c' object='cudaminer-cpu-miner.o' libtool=no \
+#	source='cudaminer.c' object='cudaminer-cpu-miner.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cudaminer-cpu-miner.o `test -f 'cpu-miner.c' || echo '$(srcdir)/'`cpu-miner.c
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cudaminer-cpu-miner.o `test -f 'cudaminer.c' || echo '$(srcdir)/'`cudaminer.c
 
-cudaminer-cpu-miner.obj: cpu-miner.c
-	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cudaminer-cpu-miner.obj -MD -MP -MF $(DEPDIR)/cudaminer-cpu-miner.Tpo -c -o cudaminer-cpu-miner.obj `if test -f 'cpu-miner.c'; then $(CYGPATH_W) 'cpu-miner.c'; else $(CYGPATH_W) '$(srcdir)/cpu-miner.c'; fi`
+cudaminer-cpu-miner.obj: cudaminer.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cudaminer-cpu-miner.obj -MD -MP -MF $(DEPDIR)/cudaminer-cpu-miner.Tpo -c -o cudaminer-cpu-miner.obj `if test -f 'cudaminer.c'; then $(CYGPATH_W) 'cudaminer.c'; else $(CYGPATH_W) '$(srcdir)/cudaminer.c'; fi`
 	$(am__mv) $(DEPDIR)/cudaminer-cpu-miner.Tpo $(DEPDIR)/cudaminer-cpu-miner.Po
-#	source='cpu-miner.c' object='cudaminer-cpu-miner.obj' libtool=no \
+#	source='cudaminer.c' object='cudaminer-cpu-miner.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cudaminer-cpu-miner.obj `if test -f 'cpu-miner.c'; then $(CYGPATH_W) 'cpu-miner.c'; else $(CYGPATH_W) '$(srcdir)/cpu-miner.c'; fi`
+#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o cudaminer-cpu-miner.obj `if test -f 'cudaminer.c'; then $(CYGPATH_W) 'cudaminer.c'; else $(CYGPATH_W) '$(srcdir)/cudaminer.c'; fi`
 
 cudaminer-util.o: util.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(cudaminer_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT cudaminer-util.o -MD -MP -MF $(DEPDIR)/cudaminer-util.Tpo -c -o cudaminer-util.o `test -f 'util.c' || echo '$(srcdir)/'`util.c

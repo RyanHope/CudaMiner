@@ -69,7 +69,7 @@
     <ClCompile Include="sha2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cpu-miner.c">
+    <ClCompile Include="cudaminer.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="scrypt.cpp">

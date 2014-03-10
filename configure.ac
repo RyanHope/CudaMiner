@@ -2,7 +2,7 @@ AC_INIT([cudaminer], [2014.02.28])
 
 AC_PREREQ([2.59c])
 AC_CANONICAL_SYSTEM
-AC_CONFIG_SRCDIR([cpu-miner.c])
+AC_CONFIG_SRCDIR([cudaminer.c])
 AM_INIT_AUTOMAKE([gnu])
 AC_CONFIG_HEADERS([cpuminer-config.h])
 

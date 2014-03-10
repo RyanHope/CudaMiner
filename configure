@@ -562,7 +562,7 @@ PACKAGE_STRING='cudaminer 2014.02.02'
 PACKAGE_BUGREPORT=''
 PACKAGE_URL=''
 
-ac_unique_file="cpu-miner.c"
+ac_unique_file="cudaminer.c"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
