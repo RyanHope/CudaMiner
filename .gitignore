@@ -7,4 +7,9 @@ config.*
 configure
 Makefile
 stamp-h1
-
+aclocal.m4
+compat/Makefile
+compat/Makefile.in
+compat/jansson/Makefile
+compat/jansson/Makefile.in
+cpuminer-config.h
