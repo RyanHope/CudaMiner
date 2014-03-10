@@ -144,7 +144,6 @@ bool want_stratum = true;
 bool have_stratum = false;
 static bool submit_old = false;
 bool use_syslog = false;
-static bool opt_background = false;
 static bool opt_quiet = false;
 static int opt_retries = -1;
 static int opt_fail_pause = 15; // CB
@@ -1170,9 +1169,6 @@ static void parse_arg (int key, char *arg)
 			else show_usage_and_exit(1);
 		}
 		break;
-	case 'B':
-		opt_background = true;
-		break;
 	case 'c': {
 		json_error_t err;
 		if (opt_config)
@@ -1590,29 +1586,8 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-#ifndef WIN32
-	if (opt_background) {
-		i = fork();
-		if (i < 0) exit(1);
-		if (i > 0) exit(0);
-		i = setsid();
-		if (i < 0)
-			applog(LOG_ERR, "setsid() failed (errno = %d)", errno);
-		i = chdir("/");
-		if (i < 0)
-			applog(LOG_ERR, "chdir() failed (errno = %d)", errno);
-		signal(SIGHUP, signal_handler);
-		signal(SIGINT, signal_handler);
-		signal(SIGTERM, signal_handler);
-	}
-#else // CB
-    if( SetConsoleCtrlHandler( (PHANDLER_ROUTINE) CtrlHandler, TRUE ) ) 
-    {
-
-    }
-#endif
-
 #if defined(WIN32)
+	if( SetConsoleCtrlHandler( (PHANDLER_ROUTINE) CtrlHandler, TRUE ) ) {}
 	SYSTEM_INFO sysinfo;
 	GetSystemInfo(&sysinfo);
 	num_processors = sysinfo.dwNumberOfProcessors;
